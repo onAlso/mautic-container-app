@@ -1,12 +1,11 @@
 FROM php:7.4-apache
 
 ARG TIMEZONE=UTC
-ARG APP_DOMAIN=web.onalso.com
+ARG APP_DOMAIN=touch.onalso.com
 ARG SERVER_ADMIN=info@onalso.com
 ARG APP_ENV=prod
 
 ENV APP_ENV $APP_ENV
-ENV SSH_PASSWD "root:Docker!"
 
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone \
@@ -19,7 +18,6 @@ RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		cron \
-		openssh-server \
 		; \
 		\
 	\
@@ -59,10 +57,13 @@ RUN set -ex; \
     libldap2-dev \
     libsodium-dev \
     librabbitmq-dev \
+		unzip \
+		zip \
 	; \
 	\
 	docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp; \
 	docker-php-ext-configure imap --with-kerberos --with-imap-ssl; \
+	docker-php-ext-configure opcache --enable-opcache \
 	docker-php-ext-install -j$(nproc) \
 		bcmath \
 		bz2 \
@@ -75,6 +76,36 @@ RUN set -ex; \
 		imap \
 		intl \
 		ldap \
+		mbstring \
+		mcrypt \
+		mysqli \
+		opcache \
+		pcntl \
+		pdo \
+		pdo_mysql \
+		snmp \
+		soap \
+		sockets \
+		tidy \
+		xsl \
+		zip \
+	; \
+	docker-php-ext-enable \
+		bcmath \
+		bz2 \
+		calendar \
+		exif \
+		gd \
+		gettext \
+		gmp \
+		iconv \
+		imap \
+		intl \
+		ldap \
+		mbstring \
+		mcrypt \
+		mysqli \
+		opcache \
 		pcntl \
 		pdo \
 		pdo_mysql \
@@ -109,64 +140,51 @@ RUN { \
 		echo 'opcache.revalidate_freq=2'; \
 		echo 'opcache.fast_shutdown=1'; \
 		echo 'opcache.enable_cli=1'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini; \
+	} | tee /usr/local/etc/php/conf.d/opcache-recommended.ini; \
 	{ \
-		echo 'memory_limit = 1024M'; \
+		echo 'memory_limit = 512M'; \
 		echo 'max_input_vars = 1000'; \
 		echo 'upload_max_filesize = 100M'; \
 		echo 'post_max_size = 100M'; \
+		echo 'always_populate_raw_post_data = -1'; \
+		echo 'file_uploads = On'; \
+		echo 'max_execution_time = 300'; \
 		echo 'expose_php = Off'; \
-	} > /usr/local/etc/php/conf.d/application-recommended.ini; \
+	} | tee /usr/local/etc/php/conf.d/application-recommended.ini; \
 	{ \
 		echo "EnableMMAP Off"; \
 		echo "EnableSendFile Off"; \
-	} > /etc/apache2/conf-available/docker-azure-appservice.conf; \
+	} | tee /etc/apache2/conf-available/docker-azure-appservice.conf; \
 	{ \
 		echo "ServerName ${APP_DOMAIN}"; \
-	} > /etc/apache2/conf-available/docker-recommended.conf; \
-	{ \
-		echo "<VirtualHost *:80>"; \
-		echo "\tServerName ${APP_DOMAIN}"; \
-		echo "\tServerAlias *.${APP_DOMAIN}"; \
-		echo "\tServerAdmin ${SERVER_ADMIN}"; \
-		echo "\tDocumentRoot /var/www/docroot"; \
-		echo "\tSetEnv APP_ENV \${APP_ENV}"; \
-		echo "</VirtualHost>"; \
-	} | tee /etc/apache2/sites-available/000-default.conf
+	} | tee /etc/apache2/conf-available/docker-recommended.conf;
 
 COPY --chown=www-data:www-data . /var/www
 
-ENV PATH="/var/www/docroot/bin:${PATH}"
+ENV PATH="/var/www/html/bin:${PATH}"
 
 RUN \
 	mkdir -p /tmp/; \
-	mv /var/www/index_dev.php /var/www/docroot/index_dev.php; \
+	mv /var/www/mautic /usr/src/mautic; \
+	mv /var/www/index_dev.php /var/www/html/index_dev.php; \
 	mv /var/www/docker-entrypoint.sh /usr/local/bin/; \
 	mv /var/www/mautic_crontab /etc/cron.d/;\
-	mv /var/www/ssh_setup.sh /tmp/; \
-	mv /var/www/sshd_config /etc/ssh/; \
-	chown root:root /tmp/ssh_setup.sh; \
-	chown root:root /etc/ssh/sshd_config; \
 	chown root:root /usr/local/bin/docker-entrypoint.sh; \
 	chown root:root /etc/cron.d/mautic_crontab; \
-	chmod a+rx /tmp/ssh_setup.sh; \
 	chmod a+rx /usr/local/bin/docker-entrypoint.sh; \
 	chmod 0644 /etc/cron.d/mautic_crontab; \
 	touch /var/log/cron.log
 
 RUN \
-	echo "$SSH_PASSWD" | chpasswd; \
-	(sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
-
-RUN \
 	a2enconf docker-recommended docker-azure-appservice; \
 	a2enmod rewrite expires
 
-VOLUME /home
+VOLUME /var/www/data
+VOLUME /var/www/html
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
-EXPOSE 80 2222
+EXPOSE 80
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 

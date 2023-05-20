@@ -10,3 +10,6 @@
 /docroot
 /vendor
 
+/mautic/*
+!/mautic/.gitkeep
+

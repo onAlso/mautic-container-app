@@ -14,7 +14,7 @@ composer_devel=composer install --no-suggest
 composer_update=composer update
 composer_clean=\
 	vendor \
-	docroot \
+	mautic/* \
 	app/* \
 	bin/*
 

@@ -25,11 +25,11 @@
       "type": "package",
       "package": {
         "name": "mautic/mautic-release",
-        "version": "4.0.1",
+        "version": "4.4.6",
         "type": "application",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/mautic/mautic/releases/download/4.0.1/4.0.1.zip"
+          "url": "https://github.com/mautic/mautic/releases/download/4.4.6/4.4.6.zip"
         },
         "require": {
           "composer/installers": "~1.0"
@@ -47,20 +47,23 @@
   "config": {
     "sort-packages": true,
     "secure-http": false,
-    "php": "7.4"
+    "php": "7.4",
+    "allow-plugins": {
+      "composer/installers": true
+    }
   },
   "extra": {
     "installer-types": [
       "application"
     ],
     "installer-paths": {
-      "docroot/": [
+      "mautic/": [
         "mautic/mautic-release"
       ],
-      "docroot/plugins/{$name}": [
+      "mautic/plugins/{$name}": [
         "type:mautic-plugin"
       ],
-      "docroot/themes/{$name}": [
+      "mautic/themes/{$name}": [
         "type:mautic-theme"
       ]
     }
