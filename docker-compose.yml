@@ -20,6 +20,24 @@ services:
       - ./docroot:/var/www/html
     restart: always
 
+  mautic_cron:
+    image: mautic
+    container_name: mautic_cron
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        TIMEZONE: UTC
+    networks:
+      - mautic_network
+    links:
+      - mysql
+    volumes:
+      - ./dataroot:/var/www/data
+      - ./docroot:/var/www/html
+    restart: always
+    command: ["cron", "-f"]
+
   mysql:
     image: mysql:5.7
     volumes:
