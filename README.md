@@ -1,8 +1,7 @@
-# Deploy Mautic on Azure App Service
+# Deploy Mautic on Azure Container Apps
 
 This project uses [Composer](https://getcomposer.org/) to install Mautic inside
-a docker image using GitHub Actions for deployment on Azure App Service for
-custom Linux containers.
+a docker image.
 
 A `Makefile`, `docker-compose.yml` and `docker-compose.override.yml.dist` exist
 in this repository to bring up the project locally.
