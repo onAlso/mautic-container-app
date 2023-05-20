@@ -1,0 +1,16 @@
+.*
+!.docksal
+!.github
+!.gitignore
+!.htaccess
+!.gitkeep
+!.dockerignore
+/composer.phar
+/coverage.xml
+/docker-compose.override.yml
+/docroot
+/vendor
+
+/home/*
+!/home/.gitkeep
+

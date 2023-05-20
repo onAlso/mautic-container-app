@@ -1,0 +1,68 @@
+{
+  "name": "onalso/mautic-installer",
+  "description": "Composer installer to install Mautic 4 from the release zip file.",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.mautic.org/mautic-releases",
+  "support": {
+    "user-docs": "https://docs.mautic.org/en",
+    "developer-docs": "https://developer.mautic.org",
+    "chat": "https://www.mautic.org/slack"
+  },
+  "authors": [
+    {
+      "name": "Philip Martella",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.11",
+    "mautic/mautic-release": "^4.0",
+    "oomphinc/composer-installers-extender": "^2.0"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "mautic/mautic-release",
+        "version": "4.0.1",
+        "type": "application",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/mautic/mautic/releases/download/4.0.1/4.0.1.zip"
+        },
+        "require": {
+          "composer/installers": "~1.0"
+        }
+      }
+    }
+  ],
+  "conflict": {
+    "mautic/mautic": "*",
+    "mautic/core": "*",
+    "mautic/recommended-project": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "secure-http": false,
+    "php": "7.4"
+  },
+  "extra": {
+    "installer-types": [
+      "application"
+    ],
+    "installer-paths": {
+      "docroot/": [
+        "mautic/mautic-release"
+      ],
+      "docroot/plugins/{$name}": [
+        "type:mautic-plugin"
+      ],
+      "docroot/themes/{$name}": [
+        "type:mautic-theme"
+      ]
+    }
+  }
+}

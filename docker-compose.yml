@@ -1,0 +1,43 @@
+## Development
+version: '3.5'
+
+services:
+
+  mautic:
+    image: mautic
+    container_name: mautic
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        TIMEZONE: UTC
+    env_file:
+      - .env
+    networks:
+      - mautic_network
+    links:
+      - mysql
+    volumes:
+      - ./home:/home
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mautic_network
+    restart: always
+
+volumes:
+
+  mysql_data:
+    driver: local
+
+networks:
+
+  mautic_network:
+    driver: bridge
+
