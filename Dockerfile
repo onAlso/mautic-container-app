@@ -35,6 +35,7 @@ RUN set -ex; \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
+		libonig-dev \
     libpng-dev \
     libbz2-dev \
     libcurl4-gnutls-dev \
@@ -63,8 +64,8 @@ RUN set -ex; \
 	\
 	docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp; \
 	docker-php-ext-configure imap --with-kerberos --with-imap-ssl; \
-	docker-php-ext-configure opcache --enable-opcache \
-	docker-php-ext-install -j$(nproc) \
+	docker-php-ext-configure opcache --enable-opcache; \
+	docker-php-ext-install  -j$(nproc) \
 		bcmath \
 		bz2 \
 		calendar \
@@ -77,7 +78,6 @@ RUN set -ex; \
 		intl \
 		ldap \
 		mbstring \
-		mcrypt \
 		mysqli \
 		opcache \
 		pcntl \
@@ -103,7 +103,6 @@ RUN set -ex; \
 		intl \
 		ldap \
 		mbstring \
-		mcrypt \
 		mysqli \
 		opcache \
 		pcntl \
@@ -150,6 +149,7 @@ RUN { \
 		echo 'file_uploads = On'; \
 		echo 'max_execution_time = 300'; \
 		echo 'expose_php = Off'; \
+		echo 'zend.assertions = -1'; \
 	} | tee /usr/local/etc/php/conf.d/application-recommended.ini; \
 	{ \
 		echo "EnableMMAP Off"; \

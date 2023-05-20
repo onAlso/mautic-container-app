@@ -11,20 +11,17 @@ services:
       dockerfile: Dockerfile
       args:
         TIMEZONE: UTC
-    env_file:
-      - .env
     networks:
       - mautic_network
     links:
       - mysql
     volumes:
-      - ./home:/home
+      - ./dataroot:/var/www/data
+      - ./docroot:/var/www/html
     restart: always
 
   mysql:
     image: mysql:5.7
-    env_file:
-      - .env
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

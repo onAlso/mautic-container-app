@@ -9,8 +9,8 @@ docker_build=docker build --build-arg APP_ENV=${APP_ENV} -t ${TARGET}:latest .
 
 #composer_image=zealbyte/php-composer
 composer_image=composer:latest
-composer_prod=composer install --no-dev --no-suggest --prefer-dist --optimize-autoloader
-composer_devel=composer install --no-suggest
+composer_prod=composer install --no-dev --prefer-dist --optimize-autoloader
+composer_devel=composer install
 composer_update=composer update
 composer_clean=\
 	vendor \

@@ -49,6 +49,9 @@ if [ ! -f "$docroot/app/config/local.php" ]; then
   echo "Stat data dir outside volume"
   mkdir -p $dataroot
 
+  echo "Stat config dir"
+  mkdir -p $dataroot/app/config
+
   echo "Apply file permissions"
   chown -R $user:$group $dataroot
 
@@ -74,8 +77,6 @@ if [ ! -L "$docroot/media" ]; then
 
   if [ -d "$docroot/media" ]; then
     cp -a -n $docroot/media $dataroot/
-    chown -R $user:$group $dataroot/media
-    chmod -R ug+w $dataroot/media
   fi
 
   if [ -d "$dataroot/media" ]; then
@@ -91,8 +92,6 @@ if [ ! -L "$docroot/translations" ]; then
 
   if [ -d "$docroot/translations" ]; then
     cp -a -n $docroot/translations $dataroot/
-    chown -R $user:$group $dataroot/translations
-    chmod -R ug+w $dataroot/translations
   fi
 
   if [ -d "$dataroot/translations" ]; then
@@ -108,11 +107,9 @@ if [ ! -L "$docroot/var/logs" ]; then
 
   if [ -d "$docroot/var/logs" ]; then
     cp -a -n $docroot/var/logs $dataroot/var/
-    chown -R $user:$group $dataroot/var/logs
-    chmod -R ug+w $dataroot/var/logs
   fi
 
-  if [ -d "$dataroot/logs" ]; then
+  if [ -d "$dataroot/var/logs" ]; then
     rm -rf $docroot/var/logs
     ln -s $dataroot/var/logs $docroot/var/logs
   fi
@@ -125,11 +122,9 @@ if [ ! -L "$docroot/var/spool" ]; then
 
   if [ -d "$docroot/var/spool" ]; then
     cp -a -n $docroot/var/spool $dataroot/var/
-    chown -R $user:$group $dataroot/var/spool
-    chmod -R ug+w $dataroot/var/spool
   fi
 
-  if [ -d "$dataroot/spool" ]; then
+  if [ -d "$dataroot/var/spool" ]; then
     rm -rf $docroot/var/spool
     ln -s $dataroot/var/spool $docroot/var/spool
   fi
