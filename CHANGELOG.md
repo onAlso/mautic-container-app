@@ -1,2 +1,4 @@
-* logging cron job output to LogDir in persistant storage
-* executing cron jobs as www-data
+**Changelog for release 1.0.0**
+
+* Adding GitHub action to build and deploy an image to GHCR.
+
