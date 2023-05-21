@@ -25,11 +25,11 @@
       "type": "package",
       "package": {
         "name": "mautic/mautic-release",
-        "version": "4.4.6",
+        "version": "4.4.8",
         "type": "application",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/mautic/mautic/releases/download/4.4.6/4.4.6.zip"
+          "url": "https://github.com/mautic/mautic/releases/download/4.4.8/4.4.8.zip"
         },
         "require": {
           "composer/installers": "~1.0"

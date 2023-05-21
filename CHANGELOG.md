@@ -1,4 +1,4 @@
-**Changelog for release 1.0.3**
+**Changelog for release 1.0.4**
 
-* BUGFIX: Path to the cron job console executable.
+* Updating Mautic to version 4.4.8
 

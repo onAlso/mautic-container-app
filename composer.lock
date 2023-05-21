@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4c8176bdc96062a225b7dd367a91e4c",
+    "content-hash": "35092cb5638cb007b4fb646ba0cbe064",
     "packages": [
         {
             "name": "composer/installers",
@@ -159,10 +159,10 @@
         },
         {
             "name": "mautic/mautic-release",
-            "version": "4.4.6",
+            "version": "4.4.8",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/mautic/mautic/releases/download/4.4.6/4.4.6.zip"
+                "url": "https://github.com/mautic/mautic/releases/download/4.4.8/4.4.8.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
