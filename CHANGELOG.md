@@ -1,4 +1,5 @@
-**Changelog for release 1.0.0**
+**Changelog for release 1.0.2**
 
-* Adding GitHub action to build and deploy an image to GHCR.
+* Removing recursive file permissions in dataroot
+* Removing sha tagging of images in GitHub action
 

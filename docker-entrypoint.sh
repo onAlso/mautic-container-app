@@ -12,20 +12,6 @@ docroot="/var/www/html"
 dataroot="/var/www/data"
 
 
-# Entry point log
-logfile=/home/LogFiles/entrypoint.log
-test ! -f $logfile && mkdir -p /home/LogFiles && touch $logfile
-exec > >(log | tee -ai $logfile)
-exec 2>&1
-
-
-# Cron logs
-cronlogfile=/home/LogFiles/mautic_cron.log
-test ! -f $cronlogfile && mkdir -p /home/LogFiles && touch $cronlogfile
-chown $user:$group $cronlogfile
-chmod a+r $cronlogfile
-
-
 # Copy over Mautic to docroot if it's not present
 if ! [ -e index.php -a -e app/AppKernel.php ]; then
   echo >&2 "Mautic not found in $(pwd) - copying now..."
@@ -49,11 +35,11 @@ if [ ! -f "$docroot/app/config/local.php" ]; then
   echo "Stat data dir outside volume"
   mkdir -p $dataroot
 
+  echo "Apply permissions to dataroot"
+  chown $user:$group $dataroot
+
   echo "Stat config dir"
   mkdir -p $dataroot/app/config
-
-  echo "Apply file permissions"
-  chown -R $user:$group $dataroot
 
   echo "Make data dir writable"
   chmod ug+rwx $dataroot
@@ -77,6 +63,7 @@ if [ ! -L "$docroot/media" ]; then
 
   if [ -d "$docroot/media" ]; then
     cp -a -n $docroot/media $dataroot/
+    chown $user:$group $dataroot/media
   fi
 
   if [ -d "$dataroot/media" ]; then
@@ -92,6 +79,7 @@ if [ ! -L "$docroot/translations" ]; then
 
   if [ -d "$docroot/translations" ]; then
     cp -a -n $docroot/translations $dataroot/
+    chown $user:$group $dataroot/translations
   fi
 
   if [ -d "$dataroot/translations" ]; then
@@ -107,6 +95,7 @@ if [ ! -L "$docroot/var/logs" ]; then
 
   if [ -d "$docroot/var/logs" ]; then
     cp -a -n $docroot/var/logs $dataroot/var/
+    chown $user:$group $dataroot/var/logs
   fi
 
   if [ -d "$dataroot/var/logs" ]; then
@@ -122,6 +111,7 @@ if [ ! -L "$docroot/var/spool" ]; then
 
   if [ -d "$docroot/var/spool" ]; then
     cp -a -n $docroot/var/spool $dataroot/var/
+    chown $user:$group $dataroot/var/spool
   fi
 
   if [ -d "$dataroot/var/spool" ]; then

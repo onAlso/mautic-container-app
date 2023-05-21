@@ -48,7 +48,6 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=sha,prefix=,suffix=,format=long
           type=ref,event=tag
 
     - name: Build and push container image to GitHub registry
