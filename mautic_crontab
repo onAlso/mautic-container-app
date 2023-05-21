@@ -25,5 +25,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
         0 5 10 * *     www-data   php /var/www/html/bin/console mautic:unusedip:delete > /proc/1/fd/1 2>/proc/1/fd/2
 
 # download geoip db on start if it does not exist
-@reboot                www-data   [[ "$(ls -A /var/www/html/app/cache/ip_data 2>/dev/null)" ]] || php /var/www/html/app/console mautic:iplookup:download > /proc/1/fd/1 2>/proc/1/fd/2
+@reboot                www-data   [[ "$(ls -A /var/www/html/app/cache/ip_data 2>/dev/null)" ]] || php /var/www/html/bin/console mautic:iplookup:download > /proc/1/fd/1 2>/proc/1/fd/2
 #
