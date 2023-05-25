@@ -57,6 +57,14 @@ if [[ -f "$dataroot/app/config/local.php" && ! -L $docroot/app/config/local.php 
 fi
 
 
+# Copy custom themes
+if [ -d "$dataroot/themes" ]; then
+  echo "Copy custom themes from volume"
+
+  cp -a $dataroot/themes/* $docroot/themes/
+  chown -R $user:$group $docroot/themes
+fi
+
 # Stat media dir
 if [ ! -L "$docroot/media" ]; then
   echo "Stat media dir in volume"
