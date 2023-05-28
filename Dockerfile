@@ -168,11 +168,11 @@ RUN \
 	mv /var/www/mautic /usr/src/mautic; \
 	mv /var/www/index_dev.php /var/www/html/index_dev.php; \
 	mv /var/www/docker-entrypoint.sh /usr/local/bin/; \
-	mv /var/www/mautic_crontab /etc/cron.d/;\
+	mv /var/www/mautic_crontab /etc/cron.d/mautic;\
 	chown root:root /usr/local/bin/docker-entrypoint.sh; \
-	chown root:root /etc/cron.d/mautic_crontab; \
+	chown root:root /etc/cron.d/mautic; \
 	chmod a+rx /usr/local/bin/docker-entrypoint.sh; \
-	chmod 0644 /etc/cron.d/mautic_crontab; \
+	chmod 0644 /etc/cron.d/mautic; \
 	touch /var/log/cron.log
 
 RUN \
