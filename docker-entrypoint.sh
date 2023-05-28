@@ -57,6 +57,15 @@ if [[ -f "$dataroot/app/config/local.php" && ! -L $docroot/app/config/local.php 
 fi
 
 
+# Copy custom favicon
+if [ -f "$dataroot/favicon.ico" ]; then
+  echo "Copy custom favicon from volume"
+
+  cp -a -f $dataroot/favicon.ico $docroot/favicon.ico
+  chown $user:$group $docroot/favicon.ico
+fi
+
+
 # Copy custom themes
 if [ -d "$dataroot/themes" ]; then
   echo "Copy custom themes from volume"
