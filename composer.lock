@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c62a4a1686295492e959b02a03881406",
+    "content-hash": "6be1924fa98f22781cf019665655dbf6",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -5697,16 +5697,16 @@
         },
         {
             "name": "mautic/core-lib",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/core-lib.git",
-                "reference": "b0cee399ab27dc433383cea76fe4c0355bd6c0d6"
+                "reference": "9a85eaeba468a4af46dc128175c820066d61d8ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/core-lib/zipball/b0cee399ab27dc433383cea76fe4c0355bd6c0d6",
-                "reference": "b0cee399ab27dc433383cea76fe4c0355bd6c0d6",
+                "url": "https://api.github.com/repos/mautic/core-lib/zipball/9a85eaeba468a4af46dc128175c820066d61d8ca",
+                "reference": "9a85eaeba468a4af46dc128175c820066d61d8ca",
                 "shasum": ""
             },
             "require": {
@@ -5858,9 +5858,9 @@
             ],
             "description": "Mautic Open Source Distribution",
             "support": {
-                "source": "https://github.com/mautic/core-lib/tree/4.4.8"
+                "source": "https://github.com/mautic/core-lib/tree/4.4.9"
             },
-            "time": "2023-04-28T14:31:07+00:00"
+            "time": "2023-05-31T07:01:19+00:00"
         },
         {
             "name": "mautic/core-project-message",
@@ -5906,7 +5906,7 @@
         },
         {
             "name": "mautic/grapes-js-builder-bundle",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-grapesjs-builder.git",
@@ -5938,7 +5938,7 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-grapesjs-builder/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-grapesjs-builder/tree/4.4.9"
             },
             "funding": [
                 {
@@ -5954,16 +5954,16 @@
         },
         {
             "name": "mautic/plugin-citrix",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-citrix.git",
-                "reference": "1ee64a24da609fa37d59bb3517700eaed86c5f97"
+                "reference": "da09fb9b11c530cfbffe3aa2220e79ddeee6e4d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/plugin-citrix/zipball/1ee64a24da609fa37d59bb3517700eaed86c5f97",
-                "reference": "1ee64a24da609fa37d59bb3517700eaed86c5f97",
+                "url": "https://api.github.com/repos/mautic/plugin-citrix/zipball/da09fb9b11c530cfbffe3aa2220e79ddeee6e4d5",
+                "reference": "da09fb9b11c530cfbffe3aa2220e79ddeee6e4d5",
                 "shasum": ""
             },
             "require": {
@@ -5982,13 +5982,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-citrix/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-citrix/tree/4.4.9"
             },
-            "time": "2022-05-13T12:44:31+00:00"
+            "time": "2023-05-24T18:40:50+00:00"
         },
         {
             "name": "mautic/plugin-clearbit",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-clearbit.git",
@@ -6016,13 +6016,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-clearbit/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-clearbit/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-cloudstorage",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-cloudstorage.git",
@@ -6050,22 +6050,22 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-cloudstorage/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-cloudstorage/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-crm",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-crm.git",
-                "reference": "0eba51ccde798bccaa861dd7ffb48cbfedc87430"
+                "reference": "d8b84e76c3225860473b597d3afc6b1cccb5c42f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/plugin-crm/zipball/0eba51ccde798bccaa861dd7ffb48cbfedc87430",
-                "reference": "0eba51ccde798bccaa861dd7ffb48cbfedc87430",
+                "url": "https://api.github.com/repos/mautic/plugin-crm/zipball/d8b84e76c3225860473b597d3afc6b1cccb5c42f",
+                "reference": "d8b84e76c3225860473b597d3afc6b1cccb5c42f",
                 "shasum": ""
             },
             "require": {
@@ -6084,13 +6084,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-crm/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-crm/tree/4.4.9"
             },
-            "time": "2022-12-02T12:55:02+00:00"
+            "time": "2023-05-19T09:37:28+00:00"
         },
         {
             "name": "mautic/plugin-emailmarketing",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-emailmarketing.git",
@@ -6118,13 +6118,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-emailmarketing/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-emailmarketing/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-focus",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-focus.git",
@@ -6152,13 +6152,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-focus/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-focus/tree/4.4.9"
             },
             "time": "2022-11-14T15:12:03+00:00"
         },
         {
             "name": "mautic/plugin-fullcontact",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-fullcontact.git",
@@ -6186,13 +6186,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-fullcontact/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-fullcontact/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-gmail",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-gmail.git",
@@ -6220,13 +6220,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-gmail/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-gmail/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-outlook",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-outlook.git",
@@ -6254,13 +6254,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-outlook/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-outlook/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-social",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-social.git",
@@ -6288,13 +6288,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-social/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-social/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-tagmanager",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-tagmanager.git",
@@ -6322,13 +6322,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-tagmanager/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-tagmanager/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/plugin-zapier",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/plugin-zapier.git",
@@ -6356,13 +6356,13 @@
                 "plugin"
             ],
             "support": {
-                "source": "https://github.com/mautic/plugin-zapier/tree/4.4.8"
+                "source": "https://github.com/mautic/plugin-zapier/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-aurora",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-aurora.git",
@@ -6389,13 +6389,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-aurora/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-aurora/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-blank",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-blank.git",
@@ -6422,13 +6422,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-blank/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-blank/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-brienz",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-brienz.git",
@@ -6455,13 +6455,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-brienz/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-brienz/tree/4.4.9"
             },
             "time": "2022-09-02T12:18:16+00:00"
         },
         {
             "name": "mautic/theme-cards",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-cards.git",
@@ -6488,13 +6488,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-cards/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-cards/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-coffee",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-coffee.git",
@@ -6521,13 +6521,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-coffee/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-coffee/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-confirmme",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-confirmme.git",
@@ -6554,13 +6554,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-confirmme/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-confirmme/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-fresh-center",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-fresh-center.git",
@@ -6587,13 +6587,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-fresh-center/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-fresh-center/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-fresh-fixed",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-fresh-fixed.git",
@@ -6620,13 +6620,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-fresh-fixed/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-fresh-fixed/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-fresh-left",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-fresh-left.git",
@@ -6653,13 +6653,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-fresh-left/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-fresh-left/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-fresh-wide",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-fresh-wide.git",
@@ -6686,13 +6686,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-fresh-wide/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-fresh-wide/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-goldstar",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-goldstar.git",
@@ -6719,13 +6719,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-goldstar/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-goldstar/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-mauve",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-mauve.git",
@@ -6752,13 +6752,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-mauve/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-mauve/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-nature",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-nature.git",
@@ -6785,13 +6785,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-nature/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-nature/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-neopolitan",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-neopolitan.git",
@@ -6818,13 +6818,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-neopolitan/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-neopolitan/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-oxygen",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-oxygen.git",
@@ -6851,13 +6851,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-oxygen/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-oxygen/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-paprika",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-paprika.git",
@@ -6884,13 +6884,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-paprika/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-paprika/tree/4.4.9"
             },
             "time": "2021-07-19T13:24:58+00:00"
         },
         {
             "name": "mautic/theme-skyline",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-skyline.git",
@@ -6917,13 +6917,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-skyline/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-skyline/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-sparse",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-sparse.git",
@@ -6950,13 +6950,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-sparse/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-sparse/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-sunday",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-sunday.git",
@@ -6983,13 +6983,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-sunday/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-sunday/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
         {
             "name": "mautic/theme-trulypersonal",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-trulypersonal.git",
@@ -7016,13 +7016,13 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-trulypersonal/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-trulypersonal/tree/4.4.9"
             },
             "time": "2021-07-19T13:24:58+00:00"
         },
         {
             "name": "mautic/theme-vibrant",
-            "version": "4.4.8",
+            "version": "4.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/theme-vibrant.git",
@@ -7049,7 +7049,7 @@
                 "theme"
             ],
             "support": {
-                "source": "https://github.com/mautic/theme-vibrant/tree/4.4.8"
+                "source": "https://github.com/mautic/theme-vibrant/tree/4.4.9"
             },
             "time": "2022-05-13T12:44:31+00:00"
         },
