@@ -1,71 +1,102 @@
 {
-  "name": "onalso/mautic-installer",
-  "description": "Composer installer to install Mautic 4 from the release zip file.",
+  "name": "onalso/mautic-container-app",
+  "description": "Run Mautic in a container with persistant storage on a production environment and locally.",
   "type": "project",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://www.mautic.org/mautic-releases",
+  "homepage": "https://www.onalso.com/opensource",
   "support": {
-    "user-docs": "https://docs.mautic.org/en",
-    "developer-docs": "https://developer.mautic.org",
-    "chat": "https://www.mautic.org/slack"
+    "user-docs": "https://www.onalso.com/opensource/docs",
+    "developer-docs": "https://www.onalso.com/opensource/developer-docs"
   },
-  "authors": [
-    {
-      "name": "Philip Martella",
-      "role": "Developer"
-    }
-  ],
   "require": {
     "composer/installers": "^1.11",
-    "mautic/mautic-release": "^4.0",
-    "oomphinc/composer-installers-extender": "^2.0"
+    "mautic/core-composer-scaffold": "4.x-dev",
+    "mautic/core-lib": "4.4.8",
+    "mautic/core-project-message": "4.x-dev",
+    "mautic/grapes-js-builder-bundle": "4.4.8",
+    "mautic/plugin-citrix": "4.4.8",
+    "mautic/plugin-clearbit": "4.4.8",
+    "mautic/plugin-cloudstorage": "4.4.8",
+    "mautic/plugin-crm": "4.4.8",
+    "mautic/plugin-emailmarketing": "4.4.8",
+    "mautic/plugin-focus": "4.4.8",
+    "mautic/plugin-fullcontact": "4.4.8",
+    "mautic/plugin-gmail": "4.4.8",
+    "mautic/plugin-outlook": "4.4.8",
+    "mautic/plugin-social": "4.4.8",
+    "mautic/plugin-tagmanager": "4.4.8",
+    "mautic/plugin-zapier": "4.4.8",
+    "mautic/theme-aurora": "4.4.8",
+    "mautic/theme-blank": "4.4.8",
+    "mautic/theme-brienz": "4.4.8",
+    "mautic/theme-cards": "4.4.8",
+    "mautic/theme-coffee": "4.4.8",
+    "mautic/theme-confirmme": "4.4.8",
+    "mautic/theme-fresh-center": "4.4.8",
+    "mautic/theme-fresh-fixed": "4.4.8",
+    "mautic/theme-fresh-left": "4.4.8",
+    "mautic/theme-fresh-wide": "4.4.8",
+    "mautic/theme-goldstar": "4.4.8",
+    "mautic/theme-mauve": "4.4.8",
+    "mautic/theme-nature": "4.4.8",
+    "mautic/theme-neopolitan": "4.4.8",
+    "mautic/theme-oxygen": "4.4.8",
+    "mautic/theme-paprika": "4.4.8",
+    "mautic/theme-skyline": "4.4.8",
+    "mautic/theme-sparse": "4.4.8",
+    "mautic/theme-sunday": "4.4.8",
+    "mautic/theme-trulypersonal": "4.4.8",
+    "mautic/theme-vibrant": "4.4.8",
+    "php-http/message-factory": "^1.1"
   },
   "repositories": [
     {
-      "type": "package",
-      "package": {
-        "name": "mautic/mautic-release",
-        "version": "4.4.8",
-        "type": "application",
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/mautic/mautic/releases/download/4.4.8/4.4.8.zip"
-        },
-        "require": {
-          "composer/installers": "~1.0"
-        }
-      }
+      "type": "git",
+      "url": "https://github.com/mautic/FOSOAuthServerBundle.git"
     }
   ],
   "conflict": {
     "mautic/mautic": "*",
-    "mautic/core": "*",
-    "mautic/recommended-project": "*"
+    "mautic/core": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "sort-packages": true,
-    "secure-http": false,
-    "php": "7.4",
     "allow-plugins": {
       "composer/installers": true,
-      "oomphinc/composer-installers-extender": true
+      "symfony/flex": true,
+      "mautic/core-composer-scaffold": true,
+      "mautic/core-project-message": true,
+      "php-http/discovery": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "MauticPlugin\\": "docroot/plugins/"
     }
   },
   "extra": {
-    "installer-types": [
-      "application"
-    ],
+    "mautic-scaffold": {
+      "locations": {
+        "web-root": "docroot/"
+      }
+    },
     "installer-paths": {
-      "mautic/": [
-        "mautic/mautic-release"
+      "docroot/app": [
+        "type:mautic-core"
       ],
-      "mautic/plugins/{$name}": [
+      "docroot/plugins/{$name}": [
         "type:mautic-plugin"
       ],
-      "mautic/themes/{$name}": [
+      "docroot/themes/{$name}": [
         "type:mautic-theme"
+      ]
+    },
+    "mautic-core-project-message": {
+      "include-keys": [
+        "homepage",
+        "support"
       ]
     }
   }

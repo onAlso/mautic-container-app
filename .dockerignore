@@ -15,5 +15,4 @@ Dockerfile
 Makefile
 tests
 home
-dataroot
-docroot
+data
