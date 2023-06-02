@@ -28,10 +28,10 @@ jobs:
 
     - name: Install dependencies
       uses: php-actions/composer@v6
-      working-directory: ./mautic
       with:
         version: 2
         php_version: 8.0
+        args: --working-directory: ./mautic
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
