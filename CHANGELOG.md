@@ -1,8 +1,5 @@
-**Changelog for release 1.0.8**
+**Changelog for release 1.0.9**
 
-* Migrated to composer installed Mautic
-* Removed the cron service from docker compose file
-* Includes the Acquia Custom Objects plugin
-* Update GitHub action to run composer in the mautic directory
+* BUGFIX: Check if the modules and themes directories are empty.
 
->> Note that Mautic is now installed in /var/www/html/docroot
+>> Note that Mautic is installed in /var/www/html/docroot
