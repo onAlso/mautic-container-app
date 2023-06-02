@@ -13,10 +13,10 @@ composer_prod=composer install --no-dev --prefer-dist --optimize-autoloader
 composer_devel=composer install
 composer_update=composer update
 composer_clean=\
-	mautic/app \
-	mautic/bin \
-	mautic/docroot \
-	mautic/vendor \
-	mautic/*.php \
-	mautic/*.js
+	app \
+	bin \
+	docroot \
+	vendor \
+	*.php \
+	*.js
 
