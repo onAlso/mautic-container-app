@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6be1924fa98f22781cf019665655dbf6",
+    "content-hash": "7ae0dc2e596001027fd11933ea0a540a",
     "packages": [
+        {
+            "name": "acquia/mc-cs-plugin-custom-objects",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acquia/mc-cs-plugin-custom-objects.git",
+                "reference": "94ff1e5ed0a4ed93ca496f7e3c674c481da6257c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acquia/mc-cs-plugin-custom-objects/zipball/94ff1e5ed0a4ed93ca496f7e3c674c481da6257c",
+                "reference": "94ff1e5ed0a4ed93ca496f7e3c674c481da6257c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "mautic/core-lib": "^4.3",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "theofidry/alice-data-fixtures": "^1.1"
+            },
+            "type": "mautic-plugin",
+            "extra": {
+                "install-directory-name": "CustomObjectsBundle",
+                "display-name": "Custom Objects"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Acquia Engineering",
+                    "email": "engineering@acquia.com",
+                    "homepage": "https://www.acquia.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This plugin adds custom objects feature.",
+            "keywords": [
+                "Mautic",
+                "custom",
+                "objects",
+                "plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/acquia/mc-cs-plugin-custom-objects/issues",
+                "source": "https://github.com/acquia/mc-cs-plugin-custom-objects/tree/1.0.0",
+                "wiki": "https://github.com/acquia/mc-cs-plugin-custom-objects/wiki"
+            },
+            "time": "2022-05-25T09:08:55+00:00"
+        },
         {
             "name": "aws/aws-crt-php",
             "version": "v1.2.1",

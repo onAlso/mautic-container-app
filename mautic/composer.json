@@ -9,6 +9,7 @@
     "developer-docs": "https://www.onalso.com/opensource/developer-docs"
   },
   "require": {
+    "acquia/mc-cs-plugin-custom-objects": "^1.0",
     "composer/installers": "^1.11",
     "mautic/core-composer-scaffold": "4.x-dev",
     "mautic/core-lib": "^4.4",
