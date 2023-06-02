@@ -62,19 +62,23 @@ fi
 
 # Copy custom themes
 if [ -d "$datadir/themes" ]; then
-  echo "Copy custom themes from datadir to docroot"
+  if [ "$(ls -A $datadir/themes)" ]; then
+    echo "Copy custom themes from datadir to docroot"
 
-  cp -a $datadir/themes/* $htmldir/docroot/themes/
-  chown -R $user:$group $htmldir/docroot/themes
+    cp -a $datadir/themes/* $htmldir/docroot/themes/
+    chown -R $user:$group $htmldir/docroot/themes
+  fi
 fi
 
 
 # Copy custom plugins
 if [ -d "$datadir/plugins" ]; then
-  echo "Copy custom plugins from datadir to docroot"
+  if [ "$(ls -A $datadir/plugins)" ]; then
+    echo "Copy custom plugins from datadir to docroot"
 
-  cp -a $datadir/plugins/* $htmldir/docroot/plugins/
-  chown -R $user:$group $htmldir/docroot/plugins
+    cp -a $datadir/plugins/* $htmldir/docroot/plugins/
+    chown -R $user:$group $htmldir/docroot/plugins
+  fi
 fi
 
 
@@ -113,8 +117,6 @@ if [ ! -d "$htmldir/docroot/var" ]; then
   echo "Stat var dir in docroot"
   mkdir -p $htmldir/docroot/var/cache
   mkdir -p $htmldir/docroot/var/tmp
-  mkdir -p $datadir/var/logs
-  mkdir -p $datadir/var/spool
 
   echo >&2 "Apply file permissions"
   chown -R $user:$group $htmldir/docroot/var
