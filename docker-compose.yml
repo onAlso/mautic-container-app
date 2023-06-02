@@ -17,7 +17,7 @@ services:
       - mysql
     volumes:
       - ./data:/var/www/data
-      - ./docroot:/var/www/docroot
+      - ./html:/var/www/html
     restart: always
 
   mysql:

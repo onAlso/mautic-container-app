@@ -162,7 +162,7 @@ RUN { \
 		echo "\tServerName ${APP_DOMAIN}"; \
 		echo "\tServerAlias *.${APP_DOMAIN}"; \
 		echo "\tServerAdmin ${SERVER_ADMIN}"; \
-		echo "\tDocumentRoot /var/www/docroot"; \
+		echo "\tDocumentRoot /var/www/html/docroot"; \
 		echo "\tSetEnv APP_ENV \${APP_ENV}"; \
 		echo "</VirtualHost>"; \
 	} | tee /etc/apache2/sites-available/000-default.conf
@@ -173,6 +173,7 @@ ENV PATH="/var/www/html/bin:${PATH}"
 
 RUN \
 	mkdir -p /tmp/; \
+	mv /var/www/mautic /usr/src/mautic; \
 	mv /var/www/docker-entrypoint.sh /usr/local/bin/; \
 	mv /var/www/mautic_crontab /etc/cron.d/mautic;\
 	chown root:root /usr/local/bin/docker-entrypoint.sh; \
@@ -186,9 +187,9 @@ RUN \
 	a2enmod rewrite expires
 
 VOLUME /var/www/data
-VOLUME /var/www/docroot
+VOLUME /var/www/html
 
-WORKDIR /var/www/
+WORKDIR /var/www/html
 
 EXPOSE 80
 
