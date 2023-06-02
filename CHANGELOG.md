@@ -1,6 +1,7 @@
-**Changelog for release 1.0.6**
+**Changelog for release 1.0.7**
 
-* Disable annual cleanup from crontab - temporary solution
-* Renaming the crontab file to mautic inside the image
-* Adding the ability to use a custom favicon from the data volume
+* Migrated to composer installed Mautic
+* Removed the cron service from docker compose file
+* Includes the Acquia Custom Objects plugin
 
+>> Note that Mautic is now installed in /var/www/html/docroot
