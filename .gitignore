@@ -7,10 +7,13 @@
 /composer.phar
 /coverage.xml
 /docker-compose.override.yml
-/dataroot
-/docroot
 /vendor
+/html
+
+/data/*
+!/data/.gitkeep
 
 /mautic/*
 !/mautic/.gitkeep
-
+!/mautic/composer.json
+!/mautic/composer.lock

@@ -8,132 +8,146 @@ log(){
 set -e
 user="${APACHE_RUN_USER:-www-data}"
 group="${APACHE_RUN_GROUP:-www-data}"
-docroot="/var/www/html"
-dataroot="/var/www/data"
+htmldir="/var/www/html"
+datadir="/var/www/data"
 
 
-# Copy over Mautic to docroot if it's not present
-if ! [ -e index.php -a -e app/AppKernel.php ]; then
+# Copy over Mautic to htmldir if it's not present
+if ! [ -e "$htmldir/docroot/index.php" -a -e "$htmldir/docroot/app/AppKernel.php" ]; then
   echo >&2 "Mautic not found in $(pwd) - copying now..."
 
   tar cf - --one-file-system -C /usr/src/mautic . | tar xf -
 
   echo >&2 "Apply file permissions"
-  chown -R $user:$group $docroot
-
-  echo >&2 "Make bin dir contents executable"
-  chmod a+x $docroot/bin/*
-
-  echo >&2 "Complete! Mautic has been successfully copied to $(pwd)"
+  chown -R $user:$group $htmldir
+  chmod a+x $htmldir/bin/*
 fi
 
 
 # Assume fresh container if there is no local config file
-if [ ! -f "$docroot/app/config/local.php" ]; then
+if [ ! -f "$htmldir/docroot/app/config/local.php" ]; then
   echo "No local.php file found in docroot.. Assume this is a fresh container."
 
   echo "Stat data dir outside volume"
-  mkdir -p $dataroot
-
-  echo "Apply permissions to dataroot"
-  chown $user:$group $dataroot
+  mkdir -p $datadir
 
   echo "Stat config dir"
-  mkdir -p $dataroot/app/config
+  mkdir -p $datadir/app/config
 
-  echo "Make data dir writable"
-  chmod ug+rwx $dataroot
+  echo >&2 "Apply file permissions"
+  chown -R $user:$group $datadir/app/config
+  chmod -R ug+rwx $datadir/app/config
 fi
 
 
 # Stat local config file
-if [[ -f "$dataroot/app/config/local.php" && ! -L $docroot/app/config/local.php ]]; then
-  echo "Symlink the local.php config file from volume to docroot"
+if [[ -f "$datadir/app/config/local.php" && ! -L $htmldir/docroot/app/config/local.php ]]; then
+  echo "Symlink the local.php config file from datadir to docroot"
 
-  rm -rf $docroot/app/config/local.php
-  ln -s $dataroot/app/config/local.php $docroot/app/config/local.php
-  chown $user:$group $dataroot/app/config/local.php
-  chmod ug+w $dataroot/app/config/local.php
+  rm -rf $htmldir/docroot/app/config/local.php
+  ln -s $datadir/app/config/local.php $htmldir/docroot/app/config/local.php
+  chown $user:$group $datadir/app/config/local.php
+  chmod ug+w $datadir/app/config/local.php
 fi
 
 
 # Copy custom favicon
-if [ -f "$dataroot/favicon.ico" ]; then
-  echo "Copy custom favicon from volume"
+if [ -f "$datadir/favicon.ico" ]; then
+  echo "Copy custom favicon from datadir to docroot"
 
-  cp -a -f $dataroot/favicon.ico $docroot/favicon.ico
-  chown $user:$group $docroot/favicon.ico
+  cp -a -f $datadir/favicon.ico $htmldir/docroot/favicon.ico
+  chown $user:$group $htmldir/docroot/favicon.ico
 fi
 
 
 # Copy custom themes
-if [ -d "$dataroot/themes" ]; then
-  echo "Copy custom themes from volume"
+if [ -d "$datadir/themes" ]; then
+  echo "Copy custom themes from datadir to docroot"
 
-  cp -a $dataroot/themes/* $docroot/themes/
-  chown -R $user:$group $docroot/themes
+  cp -a $datadir/themes/* $htmldir/docroot/themes/
+  chown -R $user:$group $htmldir/docroot/themes
 fi
 
+
+# Copy custom plugins
+if [ -d "$datadir/plugins" ]; then
+  echo "Copy custom plugins from datadir to docroot"
+
+  cp -a $datadir/plugins/* $htmldir/docroot/plugins/
+  chown -R $user:$group $htmldir/docroot/plugins
+fi
+
+
 # Stat media dir
-if [ ! -L "$docroot/media" ]; then
+if [ ! -L "$htmldir/docroot/media" ]; then
   echo "Stat media dir in volume"
 
-  if [ -d "$docroot/media" ]; then
-    cp -a -n $docroot/media $dataroot/
-    chown $user:$group $dataroot/media
+  if [ -d "$htmldir/docroot/media" ]; then
+    cp -a -n $htmldir/docroot/media $datadir/
   fi
 
-  if [ -d "$dataroot/media" ]; then
-    rm -rf $docroot/media
-    ln -s $dataroot/media $docroot/media
+  if [ -d "$datadir/media" ]; then
+    rm -rf $htmldir/docroot/media
+    ln -s $datadir/media $htmldir/docroot/media
   fi
 fi
 
 
 # Stat translations dir
-if [ ! -L "$docroot/translations" ]; then
+if [ ! -L "$htmldir/docroot/translations" ]; then
   echo "Stat translations dir in volume"
 
-  if [ -d "$docroot/translations" ]; then
-    cp -a -n $docroot/translations $dataroot/
-    chown $user:$group $dataroot/translations
+  if [ -d "$htmldir/docroot/translations" ]; then
+    cp -a -n $htmldir/docroot/translations $datadir/
   fi
 
-  if [ -d "$dataroot/translations" ]; then
-    rm -rf $docroot/translations
-    ln -s $dataroot/translations $docroot/translations
+  if [ -d "$datadir/translations" ]; then
+    rm -rf $htmldir/docroot/translations
+    ln -s $datadir/translations $htmldir/docroot/translations
   fi
 fi
 
 
+# Stat var dir
+if [ ! -d "$htmldir/docroot/var" ]; then
+  echo "Stat var dir in docroot"
+  mkdir -p $htmldir/docroot/var/cache
+  mkdir -p $htmldir/docroot/var/tmp
+  mkdir -p $datadir/var/logs
+  mkdir -p $datadir/var/spool
+
+  echo >&2 "Apply file permissions"
+  chown -R $user:$group $htmldir/docroot/var
+  chown $user:$group $datadir/var/logs
+  chown $user:$group $datadir/var/spool
+fi
+
 # Stat logs dir
-if [ ! -L "$docroot/var/logs" ]; then
+if [ ! -L "$htmldir/docroot/var/logs" ]; then
   echo "Stat var/logs dir in volume"
 
-  if [ -d "$docroot/var/logs" ]; then
-    cp -a -n $docroot/var/logs $dataroot/var/
-    chown $user:$group $dataroot/var/logs
+  if [ -d "$htmldir/docroot/var/logs" ]; then
+    cp -a -n $htmldir/docroot/var/logs $datadir/var/
   fi
 
-  if [ -d "$dataroot/var/logs" ]; then
-    rm -rf $docroot/var/logs
-    ln -s $dataroot/var/logs $docroot/var/logs
+  if [ -d "$datadir/var/logs" ]; then
+    rm -rf $htmldir/docroot/var/logs
+    ln -s $datadir/var/logs $htmldir/docroot/var/logs
   fi
 fi
 
 
 # Stat spool dir
-if [ ! -L "$docroot/var/spool" ]; then
+if [ ! -L "$htmldir/docroot/var/spool" ]; then
   echo "Stat var/spool dir in volume"
 
-  if [ -d "$docroot/var/spool" ]; then
-    cp -a -n $docroot/var/spool $dataroot/var/
-    chown $user:$group $dataroot/var/spool
+  if [ -d "$htmldir/docroot/var/spool" ]; then
+    cp -a -n $htmldir/docroot/var/spool $datadir/var/
   fi
 
-  if [ -d "$dataroot/var/spool" ]; then
-    rm -rf $docroot/var/spool
-    ln -s $dataroot/var/spool $docroot/var/spool
+  if [ -d "$datadir/var/spool" ]; then
+    rm -rf $htmldir/docroot/var/spool
+    ln -s $datadir/var/spool $htmldir/docroot/var/spool
   fi
 fi
 
